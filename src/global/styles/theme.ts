@@ -22,6 +22,7 @@ export const theme = {
   fonts: {
     poppinsRegular: 'Poppins_400Regular',
     poppinsBold: 'Poppins_700Bold',
+    poppinsSemiBold: 'Poppins_600SemiBold',
     BalooRegular: 'BalooBhai2_400Regular',
     BalooBold: 'BalooBhai2_700Bold',
   },
@@ -39,7 +40,7 @@ export const H1 = styled.Text<IFontsProps>`
 export const H3 = styled.Text<IFontsProps>`
   font-family: ${theme.fonts.BalooBold};
   color: ${(props) => (props.color ? props.color : theme.colors.white)};
-  text-align: ${(props) => (props.textAlign ? 'center' : 'left')};
+  text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
   font-size: ${(props) => (props.fontSize ? RFValue(Number(props.fontSize)) : RFValue(20))}px;
   margin-bottom: ${(props) => (props.marginBottom ? props.marginBottom : '0')}px;
   line-height: ${(props) => (props.fontSize ? RFValue(Number(props.fontSize + 10)) : RFValue(20 + 10))}px;
@@ -48,7 +49,15 @@ export const H3 = styled.Text<IFontsProps>`
 export const PBold = styled.Text<IFontsProps>`
   font-family: ${theme.fonts.poppinsBold};
   color: ${(props) => (props.color ? props.color : theme.colors.white)};
-  text-align: ${(props) => (props.textAlign ? 'center' : 'left')};
+  text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
+  font-size: ${(props) => (props.fontSize ? RFValue(Number(props.fontSize)) : RFValue(16))}px;
+  margin-bottom: ${(props) => (props.marginBottom ? props.marginBottom : '0')}px;
+`;
+
+export const PSemiBold = styled.Text<IFontsProps>`
+  font-family: ${theme.fonts.poppinsSemiBold};
+  color: ${(props) => (props.color ? props.color : theme.colors.white)};
+  text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
   font-size: ${(props) => (props.fontSize ? RFValue(Number(props.fontSize)) : RFValue(16))}px;
   margin-bottom: ${(props) => (props.marginBottom ? props.marginBottom : '0')}px;
 `;
@@ -56,7 +65,7 @@ export const PBold = styled.Text<IFontsProps>`
 export const PRegular = styled.Text<IFontsProps>`
   font-family: ${theme.fonts.poppinsRegular};
   color: ${(props) => (props.color ? props.color : theme.colors.white)};
-  text-align: ${(props) => (props.textAlign ? 'center' : 'left')};
+  text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
   font-size: ${(props) => (props.fontSize ? RFValue(Number(props.fontSize)) : RFValue(14))}px;
   margin-bottom: ${(props) => (props.marginBottom ? props.marginBottom : '0')}px;
 `;

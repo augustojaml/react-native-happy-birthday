@@ -11,7 +11,7 @@ export const Container = styled.ScrollView.attrs({
   },
 })`
   background: ${theme.colors.primary};
-  padding: 0 ${RFValue(16)}px;
+  padding: 0 ${RFPercentage(3)}px;
 `;
 
 export const Form = styled.View`

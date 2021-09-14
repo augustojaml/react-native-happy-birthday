@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PRegular, theme } from '../../../global/styles/theme';
+import { PRegular, PSemiBold, theme } from '../../../global/styles/theme';
 import { Container, Content, ContentIcon, InfoIcon, Message, TextInput } from './styled';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { TextInputProps } from 'react-native';
@@ -22,9 +22,9 @@ export function InputIcon({ component: Component, type, ...rest }: InputIconProp
         </Content>
         <Message>
           <InfoIcon name="information-circle-outline" />
-          <PRegular fontSize="12" color={theme.colors.error}>
+          <PSemiBold fontSize="11" color={theme.colors.error}>
             Message Error
-          </PRegular>
+          </PSemiBold>
         </Message>
       </Container>
     </>

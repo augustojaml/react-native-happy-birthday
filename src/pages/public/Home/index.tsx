@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, LogoImg, PBold, PRegular, theme } from '../../../global/styles/theme';
+import { H1, H3, LogoImg, PBold, PRegular, theme } from '../../../global/styles/theme';
 import { Container, BalloonImg } from './styled';
 
 import { useNavigation } from '@react-navigation/native';
@@ -25,6 +25,11 @@ export function Home() {
           vai te presentear com um voucher valendo um rodízio de pizza
         </PRegular>
         <BalloonImg />
+
+        <H3 marginBottom="30" textAlign="center">
+          E ai, quer ganhar{'\n'}um rodízio grátis
+        </H3>
+
         <Button title="Receber seu voucher" onPress={handleMovingPage} />
       </Container>
     </>
