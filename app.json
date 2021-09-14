@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "reactnative-birthday",
+    "slug": "reactnative-birthday",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "reactnative-birthday"
+}
