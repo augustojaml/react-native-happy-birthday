@@ -9,6 +9,10 @@ interface IFontsProps {
   color?: string;
 }
 
+interface ILogoProps {
+  marginTop?: string;
+}
+
 export const theme = {
   colors: {
     primary: '#c5aa64',
@@ -73,6 +77,6 @@ export const PRegular = styled.Text<IFontsProps>`
 export const LogoImg = styled(LogoSVG).attrs({
   width: RFValue(80),
   height: RFValue(80),
-})`
-  margin-top: ${RFPercentage(5)}px;
+})<ILogoProps>`
+  margin-top: ${(props) => (props.marginTop ? RFPercentage(Number(props.marginTop)) : RFPercentage(5))}px;
 `;

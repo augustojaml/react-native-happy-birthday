@@ -7,7 +7,6 @@ export const Container = styled.ScrollView.attrs({
     flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: RFValue(50),
   },
 })`
   background: ${theme.colors.primary};

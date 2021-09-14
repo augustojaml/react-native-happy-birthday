@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <>
-      <StatusBar />
+      <StatusBar style="light" />
       <AppRoute />
     </>
   );

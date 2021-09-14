@@ -5,12 +5,25 @@ import { Container, Form } from './styled';
 import { InputIcon } from '../../../components/Form/InputIcon';
 import { Feather, FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import { Button } from '../../../components/Form/Button';
+import { useNavigation } from '@react-navigation/native';
+import { Header } from '../../../components/Header';
 
 export function Voucher() {
+  const navigation = useNavigation<any>();
+
+  function handleMovingPage() {
+    navigation.navigate('Congratulations');
+  }
+
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
   return (
     <>
+      <Header showBack onPressBack={handleGoBack} />
       <Container>
-        <LogoImg />
+        <LogoImg marginTop="2" />
         <H1 marginBottom="30">Hoje vai ser {'\n'} uma festa!</H1>
         <H3 textAlign="center" marginBottom="30">
           Aqui no Botequinho do Brawziin aniversariante do dia ganha rodízio gratis
@@ -31,7 +44,7 @@ export function Voucher() {
           <InputIcon placeholder="Whatsapp" component={FontAwesome} type="whatsapp" />
           <InputIcon placeholder="Data de Nascimento" component={FontAwesome} type="calendar" />
           <InputIcon placeholder="Como nos Conheceu" component={MaterialIcons} type="where-to-vote" />
-          <Button title="Receber voucher" background={theme.colors.primary} />
+          <Button title="Receber voucher" background={theme.colors.primary} onPress={handleMovingPage} />
         </Form>
       </Container>
     </>
