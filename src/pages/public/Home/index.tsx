@@ -5,18 +5,16 @@ import { Container, BalloonImg } from './styled';
 import { useNavigation } from '@react-navigation/native';
 import { Button } from '../../../components/Form/Button';
 import { Header } from '../../../components/Header';
-import { SignIn } from '../../admin/SignIn';
-import { Voucher } from '../Voucher';
 
 export function Home() {
   const navigation = useNavigation<any>();
 
   function handleMoveVoucher() {
-    navigation.navigate(Voucher);
+    navigation.navigate('Voucher');
   }
 
   function handleMoveSign() {
-    navigation.navigate(SignIn);
+    navigation.navigate('SignIn');
   }
 
   return (
