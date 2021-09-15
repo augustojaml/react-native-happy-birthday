@@ -6,6 +6,7 @@ interface IFontsProps {
   textAlign?: string;
   fontSize?: string;
   marginBottom?: string;
+  marginLeft?: string;
   color?: string;
 }
 
@@ -72,6 +73,7 @@ export const PRegular = styled.Text<IFontsProps>`
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
   font-size: ${(props) => (props.fontSize ? RFValue(Number(props.fontSize)) : RFValue(14))}px;
   margin-bottom: ${(props) => (props.marginBottom ? props.marginBottom : '0')}px;
+  margin-left: ${(props) => (props.marginLeft ? props.marginLeft : '0')}px;
 `;
 
 export const LogoImg = styled(LogoSVG).attrs({

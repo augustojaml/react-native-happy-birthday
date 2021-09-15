@@ -2,13 +2,14 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Button } from '../../../components/Form/Button';
 import { H1, H3, LogoImg, PBold, PRegular, theme } from '../../../global/styles/theme';
+import { Home } from '../Home';
 import { BorderlessIcon, Container, PresentImg, IconHome } from './styled';
 
 export function Congratulations() {
   const navigation = useNavigation<any>();
 
   function handleMovingPage() {
-    navigation.navigate('Home');
+    navigation.navigate(Home);
   }
 
   return (

@@ -5,17 +5,23 @@ import { Container, BalloonImg } from './styled';
 import { useNavigation } from '@react-navigation/native';
 import { Button } from '../../../components/Form/Button';
 import { Header } from '../../../components/Header';
+import { SignIn } from '../../admin/SignIn';
+import { Voucher } from '../Voucher';
 
 export function Home() {
   const navigation = useNavigation<any>();
 
-  function handleMovingPage() {
-    navigation.navigate('Voucher');
+  function handleMoveVoucher() {
+    navigation.navigate(Voucher);
+  }
+
+  function handleMoveSign() {
+    navigation.navigate(SignIn);
   }
 
   return (
     <>
-      <Header showSetting />
+      <Header showSetting onPressSetting={handleMoveSign} />
       <Container>
         <LogoImg marginTop="0" />
         <H1>Hoje vai ser {'\n'} uma festa!</H1>
@@ -30,7 +36,7 @@ export function Home() {
 
         <H3 textAlign="center">E ai, quer ganhar{'\n'}um rodízio grátis</H3>
 
-        <Button title="Receber seu voucher" onPress={handleMovingPage} />
+        <Button title="Receber seu voucher" onPress={handleMoveVoucher} />
       </Container>
     </>
   );
