@@ -5,8 +5,12 @@ import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { BorderlessButton } from 'react-native-gesture-handler';
 
-export const Container = styled.View`
-  background: ${theme.colors.primary};
+interface HeaderProps {
+  background?: string;
+}
+
+export const Container = styled.View<HeaderProps>`
+  background: ${(props) => (props.background ? props.background : theme.colors.primary)};
   height: ${RFPercentage(10)}px;
   padding: 0 ${RFPercentage(3)}px;
 

@@ -6,6 +6,7 @@ import { Container, BorderlessIcon, IconBack, IconAdmin } from './styled';
 interface HeaderProps {
   showBack?: boolean;
   showSetting?: boolean;
+  background?: string;
   onPressBack?: () => void;
   onPressSetting?: () => void;
 }
@@ -13,6 +14,7 @@ interface HeaderProps {
 export function Header({
   showBack = false,
   showSetting = false,
+  background,
   onPressBack = () => {},
   onPressSetting = () => {},
 }: HeaderProps) {
@@ -23,7 +25,7 @@ export function Header({
   }
 
   return (
-    <Container>
+    <Container background={background}>
       {showBack && (
         <BorderlessIcon onPress={onPressBack}>
           <IconBack name="arrow-back-sharp" />

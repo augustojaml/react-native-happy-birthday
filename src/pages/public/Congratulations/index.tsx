@@ -31,7 +31,7 @@ export function Congratulations() {
         </PRegular>
         <BorderlessIcon onPress={handleMovingPage}>
           <IconHome name="home" />
-          <PBold fontSize="10">Voltar para o Site</PBold>
+          <PBold fontSize="10">Voltar para Home</PBold>
         </BorderlessIcon>
       </Container>
     </>
