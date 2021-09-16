@@ -1,16 +1,18 @@
 import React from 'react';
-import { Container, Label, InputText, InfoIcon, Message } from './styled';
-import { FontAwesome } from '@expo/vector-icons';
+import { TextInputProps } from 'react-native';
+
+import { Container, Label, TextInput, InfoIcon, Message } from './styled';
 import { PRegular, PSemiBold, theme } from '../../../global/styles/theme';
 import { RFValue } from 'react-native-responsive-fontsize';
 
-interface InputLabelProps {
+interface InputLabelProps extends TextInputProps {
   label?: string;
   component: React.ComponentClass<any>;
   type: string;
+  error?: string;
 }
 
-export function InputLabel({ label = 'label', type, component: Component }: InputLabelProps) {
+export function InputLabel({ label = 'label', type, component: Component, error, ...rest }: InputLabelProps) {
   return (
     <>
       <Container>
@@ -20,12 +22,16 @@ export function InputLabel({ label = 'label', type, component: Component }: Inpu
             {label}
           </PRegular>
         </Label>
-        <InputText />
+        <TextInput {...rest} />
         <Message>
-          <InfoIcon name="information-circle-outline" />
-          <PSemiBold fontSize="11" color={theme.colors.error}>
-            Message Error
-          </PSemiBold>
+          {error && (
+            <>
+              <InfoIcon name="information-circle-outline" />
+              <PSemiBold fontSize="11" color={theme.colors.error}>
+                {error}
+              </PSemiBold>
+            </>
+          )}
         </Message>
       </Container>
     </>

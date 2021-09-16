@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { H1, H3, LogoImg, PBold, PRegular, theme } from '../../../global/styles/theme';
 import { Container, BalloonImg } from './styled';
 
 import { useNavigation } from '@react-navigation/native';
 import { Button } from '../../../components/Form/Button';
 import { Header } from '../../../components/Header';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { api } from '../../../services/api';
 
 export function Home() {
   const navigation = useNavigation<any>();
+
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    (async () => {
+      const token = await AsyncStorage.getItem('@Birthday:token');
+
+      if (token) {
+        api.defaults.headers.authorization = `Bearer ${token}`;
+        setToken(token);
+      }
+    })();
+  }, []);
 
   function handleMoveVoucher() {
     navigation.navigate('Voucher');
   }
 
   function handleMoveSign() {
-    navigation.navigate('SignIn');
+    if (!token) {
+      navigation.navigate('SignIn');
+    } else {
+      navigation.navigate('Dashboard');
+    }
   }
 
   return (

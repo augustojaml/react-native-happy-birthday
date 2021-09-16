@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://localhost/laravel-api-vouchers/api/',
+  baseURL: 'http://192.168.100.103/laravel-api-vouchers/api/',
 });

@@ -13,7 +13,7 @@ export const Label = styled.View`
   align-items: center;
 `;
 
-export const InputText = styled.TextInput`
+export const TextInput = styled(RNTextInput)`
   padding: ${RFValue(8)}px ${RFValue(8)}px ${RFValue(5)}px ${RFValue(8)}px;
   border-bottom-width: 1px;
   border-color: ${theme.colors.primary};

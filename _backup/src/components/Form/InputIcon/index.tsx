@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { PRegular, PSemiBold, theme } from '../../../global/styles/theme';
+import React from 'react';
+import { PSemiBold, theme } from '../../../global/styles/theme';
 import { Container, Content, ContentIcon, InfoIcon, Message, TextInput } from './styled';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { TextInputProps } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
 
 interface InputIconProps extends TextInputProps {
   component: React.ComponentClass<any>;
