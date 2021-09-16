@@ -6,6 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 import { Button } from '../../../components/Form/Button';
 import { Header } from '../../../components/Header';
 
+import { MotiView } from 'moti';
+
 export function Home() {
   const navigation = useNavigation<any>();
 
@@ -30,7 +32,22 @@ export function Home() {
           </PBold>{' '}
           vai te presentear com um voucher valendo um rodízio de pizza
         </PRegular>
-        <BalloonImg />
+        <MotiView
+          from={{
+            translateY: 20,
+          }}
+          animate={{
+            translateY: 20,
+          }}
+          transition={{
+            loop: true,
+            type: 'timing',
+            duration: 1500,
+            delay: 100,
+          }}
+        >
+          <BalloonImg />
+        </MotiView>
 
         <H3 textAlign="center">E ai, quer ganhar{'\n'}um rodízio grátis</H3>
 
