@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { H1, H3, LogoImg, PBold, PRegular, theme } from '../../../global/styles/theme';
 
 import { Container, Form } from './styled';
@@ -18,6 +18,10 @@ export function Voucher() {
   function handleGoBack() {
     navigation.goBack();
   }
+
+  const sendVoucher = useCallback(() => {
+    //console.warn(123);
+  }, []);
 
   return (
     <>
@@ -44,7 +48,7 @@ export function Voucher() {
           <InputIcon placeholder="Whatsapp" component={FontAwesome} type="whatsapp" />
           <InputIcon placeholder="Data de Nascimento" component={FontAwesome} type="calendar" />
           <InputIcon placeholder="Como nos Conheceu" component={MaterialIcons} type="where-to-vote" />
-          <Button title="Receber voucher" background={theme.colors.primary} onPress={handleMovingPage} />
+          <Button title="Receber voucher" background={theme.colors.primary} onPress={sendVoucher} />
         </Form>
       </Container>
     </>
