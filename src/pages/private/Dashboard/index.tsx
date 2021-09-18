@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import { H3 } from '../../../global/styles/components';
 import { theme } from '../../../global/styles/theme';
-import { dashboard } from '../../../temp/dashboard';
+import { useSession } from '../../../hooks/useSession';
+import { api } from '../../../services/api';
 import {
   Container,
   DashHeader,
@@ -77,15 +78,18 @@ const cardsInfo = [
   },
 ];
 
-export function DashBoard() {
+export function Dashboard() {
   const navigation = useNavigation();
+  const { signOut } = useSession();
 
   const [dashData, setDashData] = useState<VoucherProps>({} as VoucherProps);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
-      const { vouchers, ...info } = dashboard;
+      const response = await api.get('/v1/dashboard');
+      console.log('Dashboard', response.data);
+      const { vouchers, ...info } = response.data;
       const infoData: CardProps[] = [];
 
       Object.entries(info).forEach((entry) => {
@@ -109,8 +113,10 @@ export function DashBoard() {
     })();
   }, []);
 
-  function handleLogout() {
-    navigation.navigate('SignIn');
+  async function handleLogout() {
+    console.log('exit');
+    signOut();
+    navigation.navigate('Session');
   }
 
   if (isLoading) {

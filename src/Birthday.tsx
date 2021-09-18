@@ -6,6 +6,7 @@ import { BalooBhai2_400Regular, BalooBhai2_700Bold } from '@expo-google-fonts/ba
 
 import { AppRoute } from './routes/stack.routes';
 import { StatusBar } from 'react-native';
+import { SessionProvider } from './hooks/useSession';
 
 export function Birthday() {
   const [fontsLoaded] = useFonts({
@@ -21,7 +22,9 @@ export function Birthday() {
   }
   return (
     <>
-      <AppRoute />
+      <SessionProvider>
+        <AppRoute />
+      </SessionProvider>
     </>
   );
 }
