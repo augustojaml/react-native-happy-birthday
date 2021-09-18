@@ -18,7 +18,7 @@ export const Container = styled.View<IHeaderProps>`
   height: ${RFPercentage(8)}px;
 `;
 
-export const ContainerButton = styled(BorderlessButton)`
+export const ContainerIcon = styled(BorderlessButton)`
   display: flex;
 `;
 

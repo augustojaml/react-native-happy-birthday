@@ -14,7 +14,7 @@ export interface FlatItemProps {
 export const InfoContainer = styled.View`
   background: ${theme.colors.white};
   margin: ${RFValue(3)}px;
-  width: 32%;
+  width: 31%;
   padding: ${RFValue(5)}px;
 `;
 

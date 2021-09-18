@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Icon, ContainerButton } from './styled';
+import { Container, Icon, ContainerIcon } from './styled';
 
 interface IHeaderProps {
   background?: string;
@@ -23,10 +23,21 @@ export function Header({
   return (
     <>
       <Container background={background}>
-        <ContainerButton onPress={onPressBackIcon}>{showBackIcon && <Icon name="arrow-back" />}</ContainerButton>
-        <ContainerButton onPress={onPressAdminIcon}>
-          {showAdminIcon && <Icon name="admin-panel-settings" />}
-        </ContainerButton>
+        {showBackIcon && (
+          <>
+            <ContainerIcon onPress={onPressBackIcon}>
+              <Icon name="arrow-back" />
+            </ContainerIcon>
+          </>
+        )}
+
+        {showAdminIcon && (
+          <>
+            <ContainerIcon onPress={onPressAdminIcon}>
+              <Icon name="admin-panel-settings" />
+            </ContainerIcon>
+          </>
+        )}
       </Container>
     </>
   );
