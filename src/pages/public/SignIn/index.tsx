@@ -27,10 +27,14 @@ export function SignIn() {
     }
   }, [email, password]);
 
+  const moveToHome = useCallback(() => {
+    navigation.navigate('Home');
+  }, []);
+
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor={theme.colors.secondary} />
-      <Header background={theme.colors.secondary} showAdminIcon={false} />
+      <Header background={theme.colors.secondary} showAdminIcon={false} onPressBackIcon={moveToHome} />
       <Container>
         <Form background={theme.colors.secondary}>
           <LogoImg marginTop="5" marginBottom="10" />

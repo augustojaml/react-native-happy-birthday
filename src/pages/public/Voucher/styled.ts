@@ -1,11 +1,58 @@
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
 import { H1, theme } from '../../../../_backup/src/global/styles/theme';
+import { Form } from '../../../components/Form';
+import { H3, PBold, PRegular } from '../../../global/styles/components';
 
-export const Container = styled.View`
-  flex: 1;
+export const Container = styled.ScrollView.attrs({
+  contentContainerStyle: {
+    flexGrow: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})`
   background: ${theme.colors.primary};
-  align-items: center;
-  justify-content: center;
+  padding: 0 ${RFPercentage(3)}px;
 `;
 
-export const Title = styled(H1)``;
+export const Title = styled(H1)`
+  line-height: ${RFValue(40)}px;
+  margin-bottom: ${RFValue(10)}px; ;
+`;
+
+export const TextRegular = styled(PRegular)`
+  text-align: center;
+  margin-bottom: ${RFValue(20)}px;
+`;
+export const TextBold = styled(PBold)``;
+
+export const SubTitle = styled(H3)`
+  line-height: ${RFValue(25)}px;
+  text-align: center;
+  margin-bottom: ${RFValue(10)}px;
+`;
+
+export const FormVoucher = styled.View`
+  background: ${theme.colors.secondary};
+  width: 100%;
+  border-radius: 5px;
+  padding: ${RFValue(10)}px;
+  margin-bottom: ${RFValue(50)}px;
+`;
+
+export const FormGroup = styled.View`
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+`;
+
+export const FormInputGroup = styled.View`
+  width: 48%;
+`;
+
+export const FormSubTitle = styled(H3)`
+  line-height: ${RFValue(25)}px;
+  text-align: center;
+  margin-top: ${RFValue(10)}px;
+  margin-bottom: ${RFValue(20)}px;
+`;

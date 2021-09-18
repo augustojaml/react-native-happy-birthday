@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'react-native';
+import { Loading } from '../../../components/Loading';
 import { H3 } from '../../../global/styles/components';
 import { theme } from '../../../global/styles/theme';
 import { useSession } from '../../../hooks/useSession';
@@ -119,54 +120,55 @@ export function Dashboard() {
     navigation.navigate('Session');
   }
 
-  if (isLoading) {
-    return <H3>Carregando...</H3>;
-  }
-
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor={theme.colors.secondary} />
-      <Container>
-        <DashHeader>
-          <Title>Dados Gerais</Title>
-          <ContainerIcon onPress={handleLogout}>
-            <IconDashHeader name="exit" />
-          </ContainerIcon>
-        </DashHeader>
 
-        <List
-          data={dashData.infoData}
-          keyExtractor={(item) => item.key}
-          numColumns={3}
-          renderItem={({ item }) => (
-            <InfoContainer>
-              <InfoContent>
-                <InfoHeader>
-                  <InfoTitle>{item.title}</InfoTitle>
-                  <InfoIcon name={item.icon} />
-                </InfoHeader>
-                <InfoQuantity>{item.quantity}</InfoQuantity>
-              </InfoContent>
-            </InfoContainer>
-          )}
-        />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Container>
+          <DashHeader>
+            <Title>Dados Gerais</Title>
+            <ContainerIcon onPress={handleLogout}>
+              <IconDashHeader name="exit" />
+            </ContainerIcon>
+          </DashHeader>
 
-        <DashHeader>
-          <Title>Vouchers Recentes</Title>
-        </DashHeader>
+          <List
+            data={dashData.infoData}
+            keyExtractor={(item) => item.key}
+            numColumns={3}
+            renderItem={({ item }) => (
+              <InfoContainer>
+                <InfoContent>
+                  <InfoHeader>
+                    <InfoTitle>{item.title}</InfoTitle>
+                    <InfoIcon name={item.icon} />
+                  </InfoHeader>
+                  <InfoQuantity>{item.quantity}</InfoQuantity>
+                </InfoContent>
+              </InfoContainer>
+            )}
+          />
 
-        {dashData &&
-          dashData.vouchers.map((voucher) => (
-            <DashRow key={voucher.id}>
-              <DashTextTDPrimary>
-                <DashTextTD>{voucher.name}</DashTextTD>
-              </DashTextTDPrimary>
-              <DashTextTDSecondary>
-                <DashTextTD>{voucher.date_of_birth}</DashTextTD>
-              </DashTextTDSecondary>
-            </DashRow>
-          ))}
-      </Container>
+          <DashHeader>
+            <Title>Vouchers Recentes</Title>
+          </DashHeader>
+
+          {dashData &&
+            dashData.vouchers.map((voucher) => (
+              <DashRow key={voucher.id}>
+                <DashTextTDPrimary>
+                  <DashTextTD>{voucher.name}</DashTextTD>
+                </DashTextTDPrimary>
+                <DashTextTDSecondary>
+                  <DashTextTD>{voucher.date_of_birth}</DashTextTD>
+                </DashTextTDSecondary>
+              </DashRow>
+            ))}
+        </Container>
+      )}
     </>
   );
 }

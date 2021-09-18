@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 interface IContainerProps {
   marginTop?: string;
+  marginTBottom?: string;
   background?: string;
 }
 
@@ -18,8 +19,9 @@ export const Container = styled(RectButton)<IContainerProps>`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: ${RFValue(40)}px;
+  height: ${RFValue(50)}px;
   margin-top: ${(props) => (props.marginTop ? RFValue(Number(props.marginTop)) : 0)}px;
+  margin-bottom: ${(props) => (props.marginTBottom ? RFValue(Number(props.marginTBottom)) : 0)}px;
 `;
 
 export const IconEnter = styled(Ionicons)`

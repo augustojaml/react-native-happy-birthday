@@ -5,16 +5,25 @@ import { Container, IconEnter } from './styled';
 
 interface IButtonProps extends RectButtonProps {
   marginTop?: string;
+  marginTBottom?: string;
   background?: string;
   title?: string;
+  icon?: string;
 }
 
-export function Button({ marginTop = '0', background, title = 'Button', ...rest }: IButtonProps) {
+export function Button({
+  marginTop = '0',
+  marginTBottom = '0',
+  background,
+  title = 'Button',
+  icon = 'md-enter',
+  ...rest
+}: IButtonProps) {
   return (
     <>
-      <Container marginTop={marginTop} background={background} {...rest}>
+      <Container marginTop={marginTop} marginTBottom={marginTBottom} background={background} {...rest}>
         <H3>{title}</H3>
-        <IconEnter name="md-enter" />
+        <IconEnter name={icon} />
       </Container>
     </>
   );

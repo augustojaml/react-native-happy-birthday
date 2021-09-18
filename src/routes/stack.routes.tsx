@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import { Home } from '../pages/public/Home';
-// import { Form } from '../pages/public/Voucher';
-// import { Congratulations } from '../pages/public/Congratulations';
+import { Home } from '../pages/public/Home';
+import { Voucher } from '../pages/public/Voucher';
+import { Congratulations } from '../pages/public/Congratulations';
 import { SignIn } from '../pages/public/SignIn';
 import { Dashboard } from '../pages/private/Dashboard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -17,7 +17,7 @@ declare global {
       Session: undefined;
       Dashboard: undefined;
       Home: undefined;
-      Form: undefined;
+      Voucher: undefined;
       Congratulations: undefined;
     }
   }
@@ -40,6 +40,10 @@ export function AppRoute() {
     <>
       <NavigationContainer>
         <NavigatorContainer initialRouteName="Home">
+          <Page options={{ headerShown: false }} name="Home" component={Home} />
+          <Page options={{ headerShown: false }} name="Voucher" component={Voucher} />
+          <Page options={{ headerShown: false }} name="Congratulations" component={Congratulations} />
+
           <Page options={{ headerShown: false }} name="Session" component={token ? Dashboard : SignIn} />
           <Page options={{ headerShown: false }} name="Dashboard" component={Dashboard} />
         </NavigatorContainer>
