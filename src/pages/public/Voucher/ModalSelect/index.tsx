@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { Keyboard } from 'react-native';
 import { theme } from '../../../../global/styles/theme';
 import { ModalItem } from '../../../../utils/modalItems';
 import {

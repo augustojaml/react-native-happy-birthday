@@ -20,6 +20,7 @@ interface InputSelectProps {
   title?: string;
   onPress?: () => void;
   placeHolderColor?: string;
+  message?: string;
 }
 
 export function InputSelect({
@@ -27,6 +28,7 @@ export function InputSelect({
   title = 'Onde nos conheceu?',
   onPress = () => {},
   placeHolderColor,
+  message,
 }: InputSelectProps) {
   return (
     <>
@@ -43,10 +45,12 @@ export function InputSelect({
           </ContentIcon>
         </Content>
         <ContentMessage>
-          <>
-            <IconMessage name="ios-information-circle-sharp" />
-            <Message>Have error here!</Message>
-          </>
+          {message && (
+            <>
+              <IconMessage name="ios-information-circle-sharp" />
+              <Message>{message}</Message>
+            </>
+          )}
         </ContentMessage>
       </Container>
     </>

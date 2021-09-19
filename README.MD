@@ -1,5 +1,5 @@
 # Task
 
 - [x] - To create screen dashboard
-- [ ] - To create useSession Hook
-- [ ] - Validate Login and Redirect Dashboard screen with data
+- [x] - To create useSession Hook
+- [x] - Validate Login and Redirect Dashboard screen with data

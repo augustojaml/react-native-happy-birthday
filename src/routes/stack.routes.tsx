@@ -18,7 +18,7 @@ declare global {
       Dashboard: undefined;
       Home: undefined;
       Voucher: undefined;
-      Congratulations: undefined;
+      Congratulations: { name: string; email: string };
     }
   }
 }

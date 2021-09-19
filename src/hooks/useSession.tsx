@@ -6,7 +6,7 @@ interface SessionProviderProps {
   children: ReactNode;
 }
 
-interface ErrorProps {
+export interface ErrorProps {
   [key: string]: string;
 }
 

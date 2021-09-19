@@ -21,9 +21,10 @@ interface InputIconProps extends TextInputProps {
     | 'calendar-outline'
     | 'md-location-outline';
   masker?: string | undefined;
+  message?: string;
 }
 
-export function InputIcon({ name = 'help', masker = undefined, ...rest }: InputIconProps) {
+export function InputIcon({ name = 'help', masker = undefined, message, ...rest }: InputIconProps) {
   return (
     <>
       <Container>
@@ -39,10 +40,12 @@ export function InputIcon({ name = 'help', masker = undefined, ...rest }: InputI
           />
         </Content>
         <ContentMessage>
-          <>
-            <IconMessage name="ios-information-circle-sharp" />
-            <Message>Have error here!</Message>
-          </>
+          {message && (
+            <>
+              <IconMessage name="ios-information-circle-sharp" />
+              <Message>{message}</Message>
+            </>
+          )}
         </ContentMessage>
       </Container>
     </>
