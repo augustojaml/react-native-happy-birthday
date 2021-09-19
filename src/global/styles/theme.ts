@@ -23,6 +23,8 @@ export const theme = {
 
     success: '#549529',
     error: '#dc3545',
+
+    placeHolderColor: '#e2d4b1',
   },
   fonts: {
     poppinsRegular: 'Poppins_400Regular',

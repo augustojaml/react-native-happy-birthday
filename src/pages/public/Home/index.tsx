@@ -27,10 +27,11 @@ export function Home() {
         <LogoImg />
         <Title>Hoje vai ser {'\n'} uma festa!</Title>
         <TextRegular textAlign="center">
-          No dia do seu aniversário o{' '}
+          No dia do seu aniversário o
           <TextBold fontSize="14" color={theme.colors.secondary}>
-            Botequinho do Brawziin
-          </TextBold>{' '}
+            {' '}
+            Botequinho do Brawziin{' '}
+          </TextBold>
           vai te presentear com um voucher valendo um rodízio de pizza
         </TextRegular>
         <SubTitle textAlign="center">E ai, quer ganhar{'\n'}um rodízio grátis</SubTitle>

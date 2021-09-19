@@ -6,6 +6,7 @@ import { H3 } from '../../../global/styles/components';
 import { theme } from '../../../global/styles/theme';
 import { useSession } from '../../../hooks/useSession';
 import { api } from '../../../services/api';
+import { cardsInfo } from '../../../utils/cardInfo';
 import {
   Container,
   DashHeader,
@@ -40,45 +41,6 @@ interface VoucherProps {
   infoData: CardProps[];
 }
 
-const cardsInfo = [
-  {
-    key: 'total',
-    title: 'Total',
-    icon: 'star',
-    quantity: '0',
-  },
-  {
-    key: 'facebook',
-    title: 'Facebook',
-    icon: 'facebook',
-    quantity: '0',
-  },
-  {
-    key: 'google',
-    title: 'Google',
-    icon: 'google',
-    quantity: '0',
-  },
-  {
-    key: 'instagram',
-    title: 'Instagram',
-    icon: 'instagram',
-    quantity: '0',
-  },
-  {
-    key: 'site',
-    title: 'Site',
-    icon: 'globe',
-    quantity: '0',
-  },
-  {
-    key: 'others',
-    title: 'Outros',
-    icon: 'cubes',
-    quantity: '0',
-  },
-];
-
 export function Dashboard() {
   const navigation = useNavigation();
   const { signOut } = useSession();
@@ -89,14 +51,15 @@ export function Dashboard() {
   useEffect(() => {
     (async () => {
       const response = await api.get('/v1/dashboard');
-      console.log('Dashboard', response.data);
       const { vouchers, ...info } = response.data;
       const infoData: CardProps[] = [];
 
       Object.entries(info).forEach((entry) => {
         const [key, value] = entry;
-        let card = cardsInfo.find((c) => c.key === key);
-        let temp: CardProps = Object.assign({}, card);
+        let temp: CardProps = Object.assign(
+          {},
+          cardsInfo.find((c) => c.key === key)
+        );
         Object.assign(temp, {
           quantity: value,
         });
@@ -115,9 +78,8 @@ export function Dashboard() {
   }, []);
 
   async function handleLogout() {
-    console.log('exit');
     signOut();
-    navigation.navigate('Session');
+    navigation.navigate('Home');
   }
 
   return (

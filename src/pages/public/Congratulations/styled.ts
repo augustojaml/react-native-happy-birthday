@@ -1,11 +1,11 @@
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
-import { H1, theme } from '../../../../_backup/src/global/styles/theme';
-import { H3, PBold, PRegular } from '../../../global/styles/components';
+import { H1, H3, PBold, PRegular } from '../../../global/styles/components';
 import { AntDesign } from '@expo/vector-icons';
 
 import PresentSVG from '../../../assets/present-2.svg';
 import { BorderlessButton } from 'react-native-gesture-handler';
+import { theme } from '../../../global/styles/theme';
 
 export const Container = styled.View`
   flex: 1;

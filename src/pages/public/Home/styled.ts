@@ -19,7 +19,7 @@ export const Title = styled(H1)`
 
 export const TextRegular = styled(PRegular)`
   text-align: center;
-  margin-bottom: ${RFValue(10)}px; ;
+  margin-bottom: ${RFValue(10)}px;
 `;
 export const TextBold = styled(PBold)``;
 

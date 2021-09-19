@@ -21,7 +21,6 @@ export function SignIn() {
 
   const handleSignIn = useCallback(async () => {
     const token = await signIn({ email: email, password: password });
-    console.log(token);
     if (token) {
       navigation.navigate('Dashboard');
     }

@@ -1,6 +1,6 @@
 import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
-import { theme } from '../../../_backup/src/global/styles/theme';
+import { theme } from '../../global/styles/theme';
 
 interface FormContainerProps {
   background?: string;

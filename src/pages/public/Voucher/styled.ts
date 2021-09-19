@@ -1,8 +1,8 @@
+import { Modal } from 'react-native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
-import { H1, theme } from '../../../../_backup/src/global/styles/theme';
-import { Form } from '../../../components/Form';
-import { H3, PBold, PRegular } from '../../../global/styles/components';
+import { H1, H3, PBold, PRegular } from '../../../global/styles/components';
+import { theme } from '../../../global/styles/theme';
 
 export const Container = styled.ScrollView.attrs({
   contentContainerStyle: {
@@ -55,4 +55,13 @@ export const FormSubTitle = styled(H3)`
   text-align: center;
   margin-top: ${RFValue(10)}px;
   margin-bottom: ${RFValue(20)}px;
+`;
+
+export const ModalContent = styled(Modal).attrs({
+  transparent: true,
+  animationType: 'fade',
+  statusBarTranslucent: true,
+})`
+  background-color: red;
+  opacity: 0.8;
 `;
